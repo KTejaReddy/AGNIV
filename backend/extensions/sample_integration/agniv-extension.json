@@ -1,0 +1,16 @@
+{
+  "id": "sample-integration",
+  "name": "GitHub Integration",
+  "version": "1.0.0",
+  "type": "integration",
+  "description": "Listens for AGNIV events and posts activity summaries to a GitHub Gist (demonstration only).",
+  "author": {
+    "name": "AGNIV SDK Team",
+    "email": "sdk@agniv.dev"
+  },
+  "agniv_version": ">=1.0.0",
+  "entry_point": "main.py",
+  "permissions": ["network"],
+  "tags": ["integration", "github", "sample"],
+  "license": "MIT"
+}

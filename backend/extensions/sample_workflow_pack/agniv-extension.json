@@ -1,0 +1,16 @@
+{
+  "id": "sample-workflow-pack",
+  "name": "Developer Workflow Pack",
+  "version": "1.0.0",
+  "type": "workflow_pack",
+  "description": "Pre-built workflows for common developer tasks: open IDE, run terminal, format code.",
+  "author": {
+    "name": "AGNIV SDK Team",
+    "email": "sdk@agniv.dev"
+  },
+  "agniv_version": ">=1.0.0",
+  "entry_point": "main.py",
+  "permissions": ["desktop", "file.read"],
+  "tags": ["workflow", "developer", "productivity", "sample"],
+  "license": "MIT"
+}

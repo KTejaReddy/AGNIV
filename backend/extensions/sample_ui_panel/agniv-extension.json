@@ -1,0 +1,16 @@
+{
+  "id": "sample-ui-panel",
+  "name": "Focus Timer Panel",
+  "version": "1.0.0",
+  "type": "ui_panel",
+  "description": "A UI Panel extension that provides a Pomodoro-style focus timer widget in the AGNIV dashboard.",
+  "author": {
+    "name": "AGNIV SDK Team",
+    "email": "sdk@agniv.dev"
+  },
+  "agniv_version": ">=1.0.0",
+  "entry_point": "main.py",
+  "permissions": ["voice"],
+  "tags": ["ui", "panel", "focus", "timer", "sample"],
+  "license": "MIT"
+}

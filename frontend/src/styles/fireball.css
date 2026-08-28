@@ -1,0 +1,136 @@
+.fireball-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  
+  /* Dynamic CSS variables controlled by React */
+  --fb-scale: 1;
+  --fb-glow: 20px;
+  --fb-speed: 2s;
+  --fb-rot-x: 0deg;
+  --fb-rot-y: 0deg;
+  
+  /* Apply transformations */
+  transform: scale(var(--fb-scale)) rotateX(var(--fb-rot-x)) rotateY(var(--fb-rot-y));
+  transition: transform 0.2s ease-out;
+}
+
+.fireball-core {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #818cf8, #3730a3);
+  box-shadow: 0 0 var(--fb-glow) #818cf8;
+  animation: float var(--fb-speed) ease-in-out infinite alternate;
+}
+
+.fireball-aura {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 2px solid rgba(129, 140, 248, 0.3);
+  box-shadow: inset 0 0 20px rgba(129, 140, 248, 0.2), 0 0 20px rgba(129, 140, 248, 0.2);
+  animation: pulse-aura var(--fb-speed) ease-in-out infinite alternate;
+}
+
+.fireball-particles {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px);
+  background-size: 20px 20px;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: spin calc(var(--fb-speed) * 4) linear infinite;
+}
+
+/* States */
+.state-idle .fireball-core {
+  background: radial-gradient(circle at 30% 30%, #ffffff, #818cf8, #3730a3);
+  box-shadow: 0 0 var(--fb-glow) #818cf8;
+}
+.state-idle .fireball-aura { border-color: rgba(129, 140, 248, 0.3); }
+
+.state-listening .fireball-core {
+  background: radial-gradient(circle at 30% 30%, #ffffff, #34d399, #065f46);
+  box-shadow: 0 0 calc(var(--fb-glow) * 1.5) #34d399;
+}
+.state-listening .fireball-aura { border-color: rgba(52, 211, 153, 0.5); animation-duration: calc(var(--fb-speed) * 0.5); }
+
+.state-thinking .fireball-core {
+  background: radial-gradient(circle at 30% 30%, #ffffff, #a78bfa, #5b21b6);
+  box-shadow: 0 0 var(--fb-glow) #a78bfa;
+}
+.state-thinking .fireball-aura {
+  border-color: rgba(167, 139, 250, 0.4);
+  animation: spiral 2s linear infinite;
+}
+
+.state-executing .fireball-core {
+  background: radial-gradient(circle at 30% 30%, #ffffff, #fbbf24, #b45309);
+  box-shadow: 0 0 calc(var(--fb-glow) * 1.2) #fbbf24;
+}
+.state-executing .fireball-aura { border-color: rgba(251, 191, 36, 0.6); }
+
+.state-transcribing .fireball-core {
+  background: radial-gradient(circle at 30% 30%, #ffffff, #60a5fa, #1d4ed8);
+  box-shadow: 0 0 calc(var(--fb-glow) * 1.5) #60a5fa;
+}
+.state-transcribing .fireball-aura { border-color: rgba(96, 165, 250, 0.5); animation-duration: calc(var(--fb-speed) * 0.8); }
+
+.state-planning .fireball-core {
+  background: radial-gradient(circle at 30% 30%, #ffffff, #f472b6, #be185d);
+  box-shadow: 0 0 var(--fb-glow) #f472b6;
+}
+.state-planning .fireball-aura {
+  border-color: rgba(244, 114, 182, 0.4);
+  animation: spiral 1.5s linear infinite reverse;
+}
+
+.state-speaking .fireball-core {
+  background: radial-gradient(circle at 30% 30%, #ffffff, #38bdf8, #0369a1);
+  box-shadow: 0 0 calc(var(--fb-glow) * 2) #38bdf8;
+  animation: float var(--fb-speed) ease-in-out infinite alternate, pulse-aura 0.3s ease-in-out infinite alternate;
+}
+.state-speaking .fireball-aura { border-color: rgba(56, 189, 248, 0.6); animation-duration: 0.5s; }
+
+.state-sleeping .fireball-core {
+  background: radial-gradient(circle at 30% 30%, #9ca3af, #4b5563, #1f2937);
+  box-shadow: 0 0 10px #4b5563;
+  animation: float calc(var(--fb-speed) * 2) ease-in-out infinite alternate;
+}
+.state-sleeping .fireball-aura { border-color: rgba(156, 163, 175, 0.2); animation-duration: calc(var(--fb-speed) * 2); }
+
+.state-error .fireball-core {
+  background: radial-gradient(circle at 30% 30%, #ffffff, #ef4444, #991b1b);
+  box-shadow: 0 0 calc(var(--fb-glow) * 1.5) #ef4444;
+}
+.state-error .fireball-aura { border-color: rgba(239, 68, 68, 0.6); animation: none; }
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(-5px); }
+  100% { transform: translateY(5px); }
+}
+
+@keyframes pulse-aura {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spiral {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(0.8) rotate(180deg); }
+  100% { transform: scale(1) rotate(360deg); }
+}

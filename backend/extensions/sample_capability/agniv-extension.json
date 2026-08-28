@@ -1,0 +1,17 @@
+{
+  "id": "sample-capability",
+  "name": "System Info Capability",
+  "version": "1.0.0",
+  "type": "capability",
+  "description": "Adds a GET_SYSTEM_UPTIME capability that returns system uptime information.",
+  "author": {
+    "name": "AGNIV SDK Team",
+    "email": "sdk@agniv.dev",
+    "url": "https://agniv.dev"
+  },
+  "agniv_version": ">=1.0.0",
+  "entry_point": "main.py",
+  "permissions": ["file.read"],
+  "tags": ["system", "info", "sample"],
+  "license": "MIT"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "sample-accessibility-pack",
+  "name": "Extended Sign Language Pack",
+  "version": "1.0.0",
+  "type": "accessibility_pack",
+  "description": "Extends the AGNIV Accessibility Suite with additional sign language vocabulary for numbers and colors.",
+  "author": {
+    "name": "AGNIV SDK Team",
+    "email": "sdk@agniv.dev"
+  },
+  "agniv_version": ">=1.0.0",
+  "entry_point": "main.py",
+  "permissions": ["perception"],
+  "tags": ["accessibility", "sign-language", "sample"],
+  "license": "MIT"
+}

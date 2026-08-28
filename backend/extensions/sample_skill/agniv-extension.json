@@ -1,0 +1,16 @@
+{
+  "id": "sample-skill",
+  "name": "Daily Briefing Skill",
+  "version": "1.0.0",
+  "type": "skill",
+  "description": "A sample skill extension that demonstrates how skills can be packaged and distributed.",
+  "author": {
+    "name": "AGNIV SDK Team",
+    "email": "sdk@agniv.dev"
+  },
+  "agniv_version": ">=1.0.0",
+  "entry_point": "main.py",
+  "permissions": ["desktop", "voice"],
+  "tags": ["skill", "daily", "briefing", "sample"],
+  "license": "MIT"
+}
